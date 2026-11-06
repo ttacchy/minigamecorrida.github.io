@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Corrida 3D</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="w">
+    <canvas id="c"></canvas>
+    <div class="hud">
+      <div><span id="sc">0</span> pontos<small>Moedas <span id="cn">0</span></small></div>
+      <div class="r"><span id="kmh">0</span> km/h<small>Recorde <span id="best">0</span></small></div>
+    </div>
+    <div class="ctl">
+      <button id="bl" aria-label="Esquerda">◀</button>
+      <button id="br" aria-label="Direita">▶</button>
+    </div>
+    <div class="ov" id="ov">
+      <div class="card">
+        <h2 id="ovT">Corrida 3D</h2>
+        <p id="ovP">Desvie dos carros e pegue as moedas. Use A e D ou as setas para virar.</p>
+        <button id="go">Jogar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
