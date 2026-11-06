@@ -1,0 +1,114 @@
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --bg: #dfe9f3;
+  --panel: #ffffffee;
+  --ink: #14263a;
+  --muted: #51667c;
+  --accent: #e63946;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1520;
+    --panel: #16222fee;
+    --ink: #e8f0f8;
+    --muted: #97aabd;
+    --accent: #ff5d6c;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: "Trebuchet MS", system-ui, sans-serif;
+  color: var(--ink);
+}
+
+#w {
+  position: fixed;
+  inset: 0;
+  top: env(safe-area-inset-top, 0px);
+  bottom: env(safe-area-inset-bottom, 0px);
+}
+
+canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+
+/* placar */
+.hud {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .55);
+  pointer-events: none;
+}
+.hud small { display: block; font-weight: 400; font-size: .8rem; opacity: .9; }
+.hud .r { text-align: right; }
+
+/* tela de início e fim */
+.ov {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.ov.hide { display: none; }
+.card {
+  background: var(--panel);
+  border-radius: 18px;
+  padding: 24px 28px;
+  text-align: center;
+  max-width: 340px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .3);
+}
+.card h2 { margin: 0 0 8px; font-size: 1.8rem; }
+.card p { margin: 0 0 16px; color: var(--muted); line-height: 1.4; }
+
+button { font: inherit; font-weight: 700; cursor: pointer; touch-action: manipulation; }
+#go {
+  font-size: 1.15rem;
+  color: #fff;
+  background: var(--accent);
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 34px;
+}
+#go:focus-visible, .ctl button:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+
+/* botões de virar (só em celular e tablet) */
+.ctl {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18px;
+  display: none;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none;
+}
+.ctl button {
+  pointer-events: auto;
+  width: 92px;
+  height: 76px;
+  font-size: 1.8rem;
+  border: 0;
+  border-radius: 18px;
+  color: #fff;
+  background: rgba(0, 0, 0, .45);
+}
+@media (pointer: coarse) { .ctl { display: flex; } }
